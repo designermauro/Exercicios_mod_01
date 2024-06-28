@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de formulários</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        form{
+            width: 600px;
+            margin: auto;
+            background-color: #8f8c8c;
+        }
+        input, textarea{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: normal;
+            font-size: 12pt;
+            background-color: rgba(255, 255, 255,.5);
+        }
+        input:hover, textarea:hover{
+            background: rgb(209, 238, 250);
+
+        }
+        legend{
+            color: rgb(80, 4, 4);
+            font-weight: bolder;
+            font-size: 13pt;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        h1{
+            
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 25px;                        
+            color: blue;
+            margin:auto;
+            background-color: rgb(68, 58, 55);
+           
+        }
+        h2{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 16px;
+            color: rgb(8, 8, 70);
+            
+        }
+        p{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: rgb(78, 6, 6);
+        }
+        fieldset{
+            border-color: black ;
+            margin: 20px;
+        }
+        fieldset#sexo{
+            width: 250px;
+            
+        }
+        fieldset#Endereco{
+            background:  url("imagens/endereco3.jpg")no-repeat  50% ;
+
+
+        }
+
+    </style>
+
+    <script>
+        function calc_total(){
+            var qtd = parseInt(document.getElementById("cQtd").value);
+            tot = qtd * 1500;
+            document.getElementById("cTot").value = tot;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>CRIANDO FORMULÁRIO - CADASTRO</h1>
+
+<form method="post" id="fContatos" action="mailto:designermauro@gmail.com" oninput="calc_total();">
+<fieldset id="cadastro"><legend><h2>Cadastro de Usuários:</h2></legend>
+    <p><label for="cNome">Nome:</label><input type="text" name="tNome" id="cNome" size="60" maxlength="60" placeholder="Nome completo"/></p>
+    <p>Data Nascimento: <input type="date" name="tNasc" id="cNasc"></p>  
+
+<fieldset id="Endereco"><legend><h2>Endereço:</h2></legend> 
+
+<p><label for="clogradouro">Logradouro: </label> <input type="text" name="tlogradouro" id="clogradouro" size="60" maxlength="50" placeholder="Rua, Avenida, Viela, ..."/></p>
+
+<p>Número: <input type="number" name="tNumero" id="cNumero" size="5" min="0" max="99999"/>
+   <label for="cCompl">Complemento: </label><input type="text" name="tCompl" id="cCompl" size="23" maxlength="35"/>
+</p> 
+
+<p><label for="cSetor">Setor:   </label><input type="text"name="tSetor"id="cSetor" size="60" maxlength="70"/></p>
+
+<p><label for="cCidade">Cidade: </label><input type="text" name= "tCidade" id= "cCidade" size="22" maxlength="30" placeholder="Sua Cidade" list="Cidades"/>
+    <datalist id="Cidades">
+        <option value="Goiânia"></option>
+        <option value="Aparecida de Goiânia"></option>
+        <option value="Trindade"></option>
+        <option value="Anapolis"></option>
+        <option value="Morrinhos"></option>
+        <option value="Neropilis"></option>
+        <option value="Faina"></option>
+        <option value="Aruanã"></option>
+        <option value="Caldas Novas"></option>
+        <option value="Pires do Roi"></option>
+    </datalist>
+
+   <label for="cEst">Estado:</label>
+<select name="tEst" id="cEst">
+   <optgroup label="Região Centro oeste">
+       <option value="GO" selected>Goiás</option>
+       <option value="MT">Mato Grosso</option>
+       <option value="MS">Mato Grosso do Sul</option>
+   </optgroup>
+
+   <optgroup label="Região Sudeste">
+       <option value="RJ">Rio de Janeiro</option>
+       <option value="SP">São Paulo</option>
+       <option value="MG">Minas Gerais</option>
+   </optgroup>
+
+   <optgroup label="Região Nordeste">
+       <option value="PE">Pernambuco</option>
+       <option value="BA">Bahia</option>
+       <option value="MC">Maceió</option>
+   </optgroup>
+
+   <optgroup label="Região Sul">
+       <option value="PA">Paraná</option>
+       <option value="SC">Santa Catarina</option>
+       <option value="RS">Rio Grande do Sul</option>
+   </optgroup>  
+</select></p>
+
+</fieldset>
+<fieldset nome="tContato" id="cContato"> <legend><h2> Contatos:</h2></legend>
+  <p>
+  <label for="cFoneCel">Telefone 1: </label><input type="tel" name="tFoneCel" id="cFoneCel" size="12" maxlength="12" placeholder="Celular"/>
+  <label for="cFoneEmp">Telefone 2: </label> <input type="tel" name="tFoneEmp" id="cFoneEmp" size="12" maxlength="12" placeholder="Empresa"/>
+  <label for="cFoneCas">Telefone 3: </label><input type="tel" name="tFoneCas" id="cFoneCas" size="12" maxlength="12" placeholder="Casa"/>
+  <p>  
+
+  <p><label for="cemail">e-mail: </label><input type="email" name="temail" id="cemail" size="40"></p>
+</fieldset>
+
+<fieldset id="sexo"><legend><h2>Sexo:</h2></legend>
+<p>
+    <input type="radio" name="tsexo" id="cmasculino" checked/><label for="cmasculino">Masculino</label>
+    <input type="radio" name="tsexo" id="cfeminino"/><label for="cfeminino">Feminino</label>
+</p>
+</fieldset> 
+
+<fieldset id="Acesso"><legend><h2>Acesso:</h2></legend>
+    <p><label for="csenha">Senha: </label><input type="password" name="tsenha" id="csenha" size="8" maxlength="8" placeholder="8 digitos">
+        <input type="button" value="CONFIRMAR"> </p>
+</fieldset>
+<fieldset id="Menssagem">
+    <legend> <h2>Mensagem do Usuário</h2></legend>
+<p><label for="cUrg">Grau de Urgência: </label>Mín:<input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2">Max:</p>
+
+<p><label for="cMsg">Mensagem: </label><textarea name="tMsg" id="cMsg" cols="60" rows="10" placeholder="Escreva sua Mensagem Aqui..."></textarea></p>
+
+    </fieldset> 
+<fieldset id="compras"><legend><h2>Ala de Compras:</h2></legend>
+    <p><input type="checkbox" name="tAdiq" id="cAdiq" checked>
+        <label for="cAdiq"> Adquirira um nosso produto!</label></p>
+        <p><label for="cCor">Cor</label>
+        <input type="color" name="tCor" id="cCor" value="#0000FF"/></p>
+        <p><label for="cQtd">Quantidade</label><input type="number" name="tQtd" id="cQtd" min="0" max="5" value="0"/></p>
+        <p><label for="cTot">Preço Total: R$</label><input type="text" name="tTot" id="cTot" placeholder="Total a pagar."readonly></p>
+</fieldset>
+<!--
+<input type="submit" value="ENVIAR"/>
+-->
+<input type="image"name="tBtnEnv" src="imagens/btnEnviar.jpeg" alt="">
+
+
+</fieldset>
+
+</form>
+
+</body>
+</html>
